@@ -6,7 +6,9 @@ import java.io.*;
 import javax.imageio.*;
 
 public class ImageEditorFrame extends JFrame {
-	public ImageEditorFrame() {
+	public ImageEditorFrame(String title) {
+		super(title);
+		
 		createMenuBar();
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
