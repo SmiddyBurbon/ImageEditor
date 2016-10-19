@@ -6,9 +6,14 @@ import java.io.*;
 import javax.imageio.*;
 
 public class ImageEditorFrame extends JFrame {
+	private ImageEditorPanel panel;
+
 	public ImageEditorFrame(String title) {
 		super(title);
-		
+
+		panel = new ImageEditorPanel();
+		add(panel);
+
 		createMenuBar();
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -33,5 +38,14 @@ public class ImageEditorFrame extends JFrame {
 	}
 	private void onOpen(){ 
 		JOptionPane.showMessageDialog(this, "Open Selected");
+		setDummyImage();
+	}
+
+	private void setDummyImage(){
+		BufferedImage bufferedImage = new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB);
+		Graphics g = bufferedImage.getGraphics();
+		g.setColor(Color.YELLOW);
+		g.fillOval(10, 10, 380, 280);
+		panel.setImage(bufferedImage);
 	}
 }
